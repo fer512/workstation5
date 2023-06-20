@@ -1,0 +1,26 @@
+{
+  "debWorkstationApp": {
+    "orderQueue": {
+      "home": {
+        "title": "Order Queues",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Order Queue",
+        "createOrEditLabel": "Create or edit a Order Queue",
+        "notFound": "No Order Queues found"
+      },
+      "created": "A new Order Queue is created with identifier {{ param }}",
+      "updated": "A Order Queue is updated with identifier {{ param }}",
+      "deleted": "A Order Queue is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Order Queue {{ id }}?"
+      },
+      "detail": {
+        "title": "Order Queue"
+      },
+      "id": "Id",
+      "order": "Order",
+      "queue": "Queue",
+      "workerProfile": "Worker Profile"
+    }
+  }
+}

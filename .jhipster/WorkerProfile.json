@@ -1,5 +1,6 @@
 {
   "applications": "*",
+  "changelogDate": "20230620195905",
   "dto": "mapstruct",
   "entityTableName": "worker_profile",
   "fields": [
@@ -50,5 +51,6 @@
       "relationshipType": "many-to-many"
     }
   ],
+  "searchEngine": "no",
   "service": "serviceImpl"
 }

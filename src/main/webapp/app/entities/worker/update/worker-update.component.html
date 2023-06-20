@@ -1,0 +1,106 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-worker-heading" data-cy="WorkerCreateUpdateHeading" jhiTranslate="debWorkstationApp.worker.home.createOrEditLabel">
+        Create or edit a Worker
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="mb-3" *ngIf="editForm.controls.id.value !== null">
+          <label class="form-label" jhiTranslate="debWorkstationApp.worker.id" for="field_id">Id</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="debWorkstationApp.worker.name" for="field_name">Name</label>
+          <input type="text" class="form-control" name="name" id="field_name" data-cy="name" formControlName="name" />
+          <div *ngIf="editForm.get('name')!.invalid && (editForm.get('name')!.dirty || editForm.get('name')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('name')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="debWorkstationApp.worker.status" for="field_status">Status</label>
+          <select class="form-control" name="status" formControlName="status" id="field_status" data-cy="status">
+            <option [ngValue]="null">{{ 'debWorkstationApp.WorkerStatus.null' | translate }}</option>
+            <option *ngFor="let workerStatus of workerStatusValues" [value]="workerStatus">
+              {{ 'debWorkstationApp.WorkerStatus.' + workerStatus | translate }}
+            </option>
+          </select>
+          <div *ngIf="editForm.get('status')!.invalid && (editForm.get('status')!.dirty || editForm.get('status')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('status')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="debWorkstationApp.worker.company" for="field_company">Company</label>
+          <select
+            class="form-control"
+            id="field_company"
+            data-cy="company"
+            name="company"
+            formControlName="company"
+            [compareWith]="compareCompany"
+          >
+            <option [ngValue]="null"></option>
+            <option [ngValue]="companyOption" *ngFor="let companyOption of companiesSharedCollection">{{ companyOption.id }}</option>
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label jhiTranslate="debWorkstationApp.worker.branch" for="field_branches">Branch</label>
+          <select
+            class="form-control"
+            id="field_branches"
+            data-cy="branch"
+            multiple
+            name="branches"
+            formControlName="branches"
+            [compareWith]="compareBranch"
+          >
+            <option [ngValue]="branchOption" *ngFor="let branchOption of branchesSharedCollection">{{ branchOption.id }}</option>
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="debWorkstationApp.worker.waitingRoom" for="field_waitingRoom">Waiting Room</label>
+          <select
+            class="form-control"
+            id="field_waitingRoom"
+            data-cy="waitingRoom"
+            name="waitingRoom"
+            formControlName="waitingRoom"
+            [compareWith]="compareWaitingRoom"
+          >
+            <option [ngValue]="null"></option>
+            <option [ngValue]="waitingRoomOption" *ngFor="let waitingRoomOption of waitingRoomsSharedCollection">
+              {{ waitingRoomOption.id }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

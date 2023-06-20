@@ -1,0 +1,46 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="branch">
+      <h2 data-cy="branchDetailsHeading"><span jhiTranslate="debWorkstationApp.branch.detail.title">Branch</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="debWorkstationApp.branch.id">Id</span></dt>
+        <dd>
+          <span>{{ branch.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="debWorkstationApp.branch.name">Name</span></dt>
+        <dd>
+          <span>{{ branch.name }}</span>
+        </dd>
+        <dt><span jhiTranslate="debWorkstationApp.branch.status">Status</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'debWorkstationApp.BranchStatus.' + branch.status }}">{{ branch.status }}</span>
+        </dd>
+        <dt><span jhiTranslate="debWorkstationApp.branch.language">Language</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'debWorkstationApp.Language.' + branch.language }}">{{ branch.language }}</span>
+        </dd>
+        <dt><span jhiTranslate="debWorkstationApp.branch.company">Company</span></dt>
+        <dd>
+          <div *ngIf="branch.company">
+            <a [routerLink]="['/company', branch.company.id, 'view']">{{ branch.company.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/branch', branch.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

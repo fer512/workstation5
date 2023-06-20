@@ -1,0 +1,31 @@
+{
+  "debWorkstationApp": {
+    "branch": {
+      "home": {
+        "title": "Branches",
+        "refreshListLabel": "Atualizar lista",
+        "createLabel": "Criar novo Branch",
+        "createOrEditLabel": "Criar ou editar Branch",
+        "notFound": "Nenhum Branch encontrado"
+      },
+      "created": "Um novo Branch foi criado com o identificador {{ param }}",
+      "updated": "Um Branch foi atualizado com o identificador {{ param }}",
+      "deleted": "Um Branch foi excluído com o identificador {{ param }}",
+      "delete": {
+        "question": "Tem certeza de que deseja excluir Branch {{ id }}?"
+      },
+      "detail": {
+        "title": "Branch"
+      },
+      "id": "Id",
+      "name": "Name",
+      "status": "Status",
+      "language": "Language",
+      "company": "Company",
+      "waitingRoom": "Waiting Room",
+      "queue": "Queue",
+      "worker": "Worker",
+      "workerProfiles": "Worker Profiles"
+    }
+  }
+}

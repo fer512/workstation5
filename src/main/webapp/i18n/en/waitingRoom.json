@@ -1,0 +1,29 @@
+{
+  "debWorkstationApp": {
+    "waitingRoom": {
+      "home": {
+        "title": "Waiting Rooms",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Waiting Room",
+        "createOrEditLabel": "Create or edit a Waiting Room",
+        "notFound": "No Waiting Rooms found"
+      },
+      "created": "A new Waiting Room is created with identifier {{ param }}",
+      "updated": "A Waiting Room is updated with identifier {{ param }}",
+      "deleted": "A Waiting Room is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Waiting Room {{ id }}?"
+      },
+      "detail": {
+        "title": "Waiting Room"
+      },
+      "id": "Id",
+      "name": "Name",
+      "status": "Status",
+      "attencionChannel": "Attencion Channel",
+      "worker": "Worker",
+      "company": "Company",
+      "branch": "Branch"
+    }
+  }
+}

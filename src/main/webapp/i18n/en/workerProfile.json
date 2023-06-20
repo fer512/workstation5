@@ -1,0 +1,29 @@
+{
+  "debWorkstationApp": {
+    "workerProfile": {
+      "home": {
+        "title": "Worker Profiles",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Worker Profile",
+        "createOrEditLabel": "Create or edit a Worker Profile",
+        "notFound": "No Worker Profiles found"
+      },
+      "created": "A new Worker Profile is created with identifier {{ param }}",
+      "updated": "A Worker Profile is updated with identifier {{ param }}",
+      "deleted": "A Worker Profile is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Worker Profile {{ id }}?"
+      },
+      "detail": {
+        "title": "Worker Profile"
+      },
+      "id": "Id",
+      "name": "Name",
+      "status": "Status",
+      "attencionChannel": "Attencion Channel",
+      "callableQueue": "Callable Queue",
+      "company": "Company",
+      "branches": "Branches"
+    }
+  }
+}

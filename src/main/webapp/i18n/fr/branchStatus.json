@@ -1,0 +1,9 @@
+{
+  "debWorkstationApp": {
+    "BranchStatus": {
+      "null": "",
+      "ACTIVE": "ACTIVE",
+      "DISABLED": "DISABLED"
+    }
+  }
+}

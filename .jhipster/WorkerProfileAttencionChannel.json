@@ -1,5 +1,6 @@
 {
   "applications": "*",
+  "changelogDate": "20230620195906",
   "dto": "mapstruct",
   "entityTableName": "worker_profile_attencion_channel",
   "fields": [
@@ -22,5 +23,6 @@
   "name": "WorkerProfileAttencionChannel",
   "pagination": "pagination",
   "relationships": [],
+  "searchEngine": "no",
   "service": "serviceImpl"
 }

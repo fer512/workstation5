@@ -1,0 +1,10 @@
+{
+  "debWorkstationApp": {
+    "WaitingRoomAttencionChannelType": {
+      "null": "",
+      "VIRTUAL": "VIRTUAL",
+      "PRESENTIAL": "PRESENTIAL",
+      "MIXED": "MIXED"
+    }
+  }
+}

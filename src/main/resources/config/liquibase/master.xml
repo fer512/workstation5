@@ -17,7 +17,23 @@
     <property name="datetimeType" value="datetime" dbms="mssql"/>
 
     <include file="config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20230620195902_added_entity_Worker.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20230620195903_added_entity_AttencionChannel.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20230620195904_added_entity_WaitingRoomAttencionChannel.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20230620195905_added_entity_WorkerProfile.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20230620195906_added_entity_WorkerProfileAttencionChannel.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20230620195907_added_entity_WaitingRoom.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20230620195908_added_entity_Branch.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20230620195909_added_entity_Queue.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20230620195910_added_entity_Company.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20230620195911_added_entity_OrderQueue.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
+    <include file="config/liquibase/changelog/20230620195902_added_entity_constraints_Worker.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20230620195905_added_entity_constraints_WorkerProfile.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20230620195907_added_entity_constraints_WaitingRoom.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20230620195908_added_entity_constraints_Branch.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20230620195909_added_entity_constraints_Queue.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20230620195911_added_entity_constraints_OrderQueue.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
     <!-- jhipster-needle-liquibase-add-incremental-changelog - JHipster will add incremental liquibase changelogs here -->
 </databaseChangeLog>

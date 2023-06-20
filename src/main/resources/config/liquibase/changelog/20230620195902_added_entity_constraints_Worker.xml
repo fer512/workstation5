@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+    <!--
+        Added the constraints for entity Worker.
+    -->
+    <changeSet id="20230620195902-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="company_id"
+                                 baseTableName="worker"
+                                 constraintName="fk_worker__company_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="company"
+                                 />
+
+        <addForeignKeyConstraint baseColumnNames="worker_id"
+                                 baseTableName="rel_worker__branch"
+                                 constraintName="fk_rel_worker__branch__worker_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="worker"
+                                 />
+
+        <addForeignKeyConstraint baseColumnNames="branch_id"
+                                 baseTableName="rel_worker__branch"
+                                 constraintName="fk_rel_worker__branch__branch_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="branch"
+                                 />
+
+        <addForeignKeyConstraint baseColumnNames="waiting_room_id"
+                                 baseTableName="worker"
+                                 constraintName="fk_worker__waiting_room_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="waiting_room"
+                                 />
+    </changeSet>
+</databaseChangeLog>

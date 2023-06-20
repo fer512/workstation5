@@ -7,6 +7,16 @@
       "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
       "entities": {
         "main": "Entities",
+        "worker": "Worker",
+        "attencionChannel": "Attencion Channel",
+        "waitingRoomAttencionChannel": "Waiting Room Attencion Channel",
+        "workerProfile": "Worker Profile",
+        "workerProfileAttencionChannel": "Worker Profile Attencion Channel",
+        "waitingRoom": "Waiting Room",
+        "branch": "Branch",
+        "queue": "Queue",
+        "company": "Company",
+        "orderQueue": "Order Queue",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {

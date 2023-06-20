@@ -1,0 +1,57 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="waitingRoom">
+      <h2 data-cy="waitingRoomDetailsHeading"><span jhiTranslate="debWorkstationApp.waitingRoom.detail.title">Waiting Room</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="debWorkstationApp.waitingRoom.id">Id</span></dt>
+        <dd>
+          <span>{{ waitingRoom.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="debWorkstationApp.waitingRoom.name">Name</span></dt>
+        <dd>
+          <span>{{ waitingRoom.name }}</span>
+        </dd>
+        <dt><span jhiTranslate="debWorkstationApp.waitingRoom.status">Status</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'debWorkstationApp.WaitingRoomStatus.' + waitingRoom.status }}">{{ waitingRoom.status }}</span>
+        </dd>
+        <dt><span jhiTranslate="debWorkstationApp.waitingRoom.attencionChannel">Attencion Channel</span></dt>
+        <dd>
+          <div *ngIf="waitingRoom.attencionChannel">
+            <a [routerLink]="['/waiting-room-attencion-channel', waitingRoom.attencionChannel.id, 'view']">{{
+              waitingRoom.attencionChannel.id
+            }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="debWorkstationApp.waitingRoom.company">Company</span></dt>
+        <dd>
+          <div *ngIf="waitingRoom.company">
+            <a [routerLink]="['/company', waitingRoom.company.id, 'view']">{{ waitingRoom.company.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="debWorkstationApp.waitingRoom.branch">Branch</span></dt>
+        <dd>
+          <span *ngFor="let branch of waitingRoom.branches; let last = last">
+            <a [routerLink]="['/branch', branch.id, 'view']">{{ branch.id }}</a
+            >{{ last ? '' : ', ' }}
+          </span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/waiting-room', waitingRoom.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

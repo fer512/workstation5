@@ -1,0 +1,26 @@
+{
+  "debWorkstationApp": {
+    "workerProfileAttencionChannel": {
+      "home": {
+        "title": "WorkerProfileAttencionChannels",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Worker Profile Attencion Channel",
+        "createOrEditLabel": "Créer ou éditer un Worker Profile Attencion Channel",
+        "notFound": "Aucun Worker Profile Attencion Channel trouvé"
+      },
+      "created": "Un nouveau Worker Profile Attencion Channel a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Worker Profile Attencion Channel avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Worker Profile Attencion Channel avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Worker Profile Attencion Channel {{ id }} ?"
+      },
+      "detail": {
+        "title": "Worker Profile Attencion Channel"
+      },
+      "id": "Id",
+      "name": "Name",
+      "type": "Type",
+      "workerProfile": "Worker Profile"
+    }
+  }
+}

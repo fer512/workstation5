@@ -1,0 +1,9 @@
+{
+  "debWorkstationApp": {
+    "QueueStatus": {
+      "null": "",
+      "ACTIVE": "ACTIVE",
+      "DISABLED": "DISABLED"
+    }
+  }
+}

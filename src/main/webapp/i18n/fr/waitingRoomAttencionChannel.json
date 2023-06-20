@@ -1,0 +1,26 @@
+{
+  "debWorkstationApp": {
+    "waitingRoomAttencionChannel": {
+      "home": {
+        "title": "WaitingRoomAttencionChannels",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Waiting Room Attencion Channel",
+        "createOrEditLabel": "Créer ou éditer un Waiting Room Attencion Channel",
+        "notFound": "Aucun Waiting Room Attencion Channel trouvé"
+      },
+      "created": "Un nouveau Waiting Room Attencion Channel a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Waiting Room Attencion Channel avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Waiting Room Attencion Channel avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Waiting Room Attencion Channel {{ id }} ?"
+      },
+      "detail": {
+        "title": "Waiting Room Attencion Channel"
+      },
+      "id": "Id",
+      "name": "Name",
+      "type": "Type",
+      "waitingRoom": "Waiting Room"
+    }
+  }
+}

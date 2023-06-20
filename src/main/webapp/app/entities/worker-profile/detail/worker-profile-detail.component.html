@@ -1,0 +1,57 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="workerProfile">
+      <h2 data-cy="workerProfileDetailsHeading"><span jhiTranslate="debWorkstationApp.workerProfile.detail.title">Worker Profile</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="debWorkstationApp.workerProfile.id">Id</span></dt>
+        <dd>
+          <span>{{ workerProfile.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="debWorkstationApp.workerProfile.name">Name</span></dt>
+        <dd>
+          <span>{{ workerProfile.name }}</span>
+        </dd>
+        <dt><span jhiTranslate="debWorkstationApp.workerProfile.status">Status</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'debWorkstationApp.WorkerProfileStatus.' + workerProfile.status }}">{{ workerProfile.status }}</span>
+        </dd>
+        <dt><span jhiTranslate="debWorkstationApp.workerProfile.attencionChannel">Attencion Channel</span></dt>
+        <dd>
+          <div *ngIf="workerProfile.attencionChannel">
+            <a [routerLink]="['/worker-profile-attencion-channel', workerProfile.attencionChannel.id, 'view']">{{
+              workerProfile.attencionChannel.id
+            }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="debWorkstationApp.workerProfile.company">Company</span></dt>
+        <dd>
+          <div *ngIf="workerProfile.company">
+            <a [routerLink]="['/company', workerProfile.company.id, 'view']">{{ workerProfile.company.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="debWorkstationApp.workerProfile.branches">Branches</span></dt>
+        <dd>
+          <span *ngFor="let branches of workerProfile.branches; let last = last">
+            <a [routerLink]="['/branch', branches.id, 'view']">{{ branches.id }}</a
+            >{{ last ? '' : ', ' }}
+          </span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/worker-profile', workerProfile.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

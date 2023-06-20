@@ -1,0 +1,9 @@
+{
+  "debWorkstationApp": {
+    "WorkerStatus": {
+      "null": "",
+      "ACTIVE": "ACTIVE",
+      "DISABLED": "DISABLED"
+    }
+  }
+}

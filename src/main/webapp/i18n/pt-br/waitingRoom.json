@@ -1,0 +1,29 @@
+{
+  "debWorkstationApp": {
+    "waitingRoom": {
+      "home": {
+        "title": "Waiting Rooms",
+        "refreshListLabel": "Atualizar lista",
+        "createLabel": "Criar novo Waiting Room",
+        "createOrEditLabel": "Criar ou editar Waiting Room",
+        "notFound": "Nenhum Waiting Room encontrado"
+      },
+      "created": "Um novo Waiting Room foi criado com o identificador {{ param }}",
+      "updated": "Um Waiting Room foi atualizado com o identificador {{ param }}",
+      "deleted": "Um Waiting Room foi excluído com o identificador {{ param }}",
+      "delete": {
+        "question": "Tem certeza de que deseja excluir Waiting Room {{ id }}?"
+      },
+      "detail": {
+        "title": "Waiting Room"
+      },
+      "id": "Id",
+      "name": "Name",
+      "status": "Status",
+      "attencionChannel": "Attencion Channel",
+      "worker": "Worker",
+      "company": "Company",
+      "branch": "Branch"
+    }
+  }
+}

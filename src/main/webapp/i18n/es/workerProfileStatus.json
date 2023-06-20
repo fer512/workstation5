@@ -1,0 +1,9 @@
+{
+  "debWorkstationApp": {
+    "WorkerProfileStatus": {
+      "null": "",
+      "ACTIVE": "ACTIVE",
+      "DISABLED": "DISABLED"
+    }
+  }
+}
