@@ -1,0 +1,26 @@
+{
+  "applications": "*",
+  "dto": "mapstruct",
+  "entityTableName": "worker_profile_attencion_channel",
+  "fields": [
+    {
+      "fieldName": "id",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "unique"]
+    },
+    {
+      "fieldName": "type",
+      "fieldType": "WorkerProfileAttencionChannelType",
+      "fieldValidateRules": ["required"],
+      "fieldValues": "VIRTUAL,PRESENTIAL,MIXED"
+    }
+  ],
+  "name": "WorkerProfileAttencionChannel",
+  "pagination": "pagination",
+  "relationships": [],
+  "service": "serviceImpl"
+}

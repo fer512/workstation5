@@ -1,0 +1,134 @@
+entity Company {
+	id Long,
+	name String required unique,
+    status CompanyStatus required,
+    language Language required
+}
+
+entity Branch {
+	id Long,
+	name String required unique,
+    status BranchStatus required,
+    language Language required
+}
+
+enum CompanyStatus {
+    ACTIVE, DISABLED
+}
+
+enum BranchStatus {
+    ACTIVE, DISABLED
+}
+
+enum Language {
+    FRENCH, ENGLISH, SPANISH
+}
+
+entity Queue {
+	id Long,
+	name String required unique,
+    status QueueStatus required
+}
+
+enum QueueStatus {
+    ACTIVE, DISABLED
+}
+
+entity AttencionChannel {
+	id Long,
+	name String required unique,
+    type AttencionChannelType required
+}
+
+enum AttencionChannelType{
+	VIRTUAL, PRESENTIAL, MIXED
+}
+
+entity Worker {
+	id Long,
+	name String required unique,
+    status WorkerStatus required
+}
+
+entity WorkerProfile {
+	id Long,
+	name String required unique,
+    status WorkerProfileStatus required
+}
+
+entity OrderQueue {
+	id Long,
+    order Long required
+}
+
+entity WorkerProfileAttencionChannel {
+	id Long,
+	name String required unique,
+    type WorkerProfileAttencionChannelType required
+}
+
+enum WorkerProfileAttencionChannelType{
+	VIRTUAL, PRESENTIAL, MIXED
+}
+
+enum WorkerStatus{
+	ACTIVE, DISABLED
+}
+enum WorkerProfileStatus{
+	ACTIVE, DISABLED
+}
+
+entity WaitingRoom {
+	id Long,
+	name String required unique,
+    status WaitingRoomStatus required
+}
+
+enum WaitingRoomAttencionChannelType{
+	VIRTUAL, PRESENTIAL, MIXED
+}
+
+entity WaitingRoomAttencionChannel {
+	id Long,
+	name String required unique,
+    type WaitingRoomAttencionChannelType required
+}
+
+enum WaitingRoomStatus{
+	ACTIVE, DISABLED
+}
+
+relationship OneToOne {
+	WaitingRoom{attencionChannel} to WaitingRoomAttencionChannel,
+    Queue{attencionChannel} to AttencionChannel,
+    WorkerProfile{attencionChannel} to WorkerProfileAttencionChannel
+}
+
+relationship OneToMany {
+	WaitingRoom to Worker,
+    WorkerProfile{callableQueue} to OrderQueue
+}
+
+relationship ManyToMany {
+	WaitingRoom to Branch,
+    Queue to Branch,
+    Worker to Branch,
+    WorkerProfile{branches} to Branch{workerProfiles}
+}
+
+relationship ManyToOne {
+	WaitingRoom to Company,
+    Branch{company} to Company{branches},
+    Queue to Company,
+    Worker to Company,
+    OrderQueue{queue} to Queue,
+    WorkerProfile{company} to Company{workerProfiles}
+}
+
+paginate all with pagination
+
+dto * with mapstruct
+
+service all with serviceImpl
+
+filter Company, Branch, WorkerProfile, Worker, Queue, WaitingRoom

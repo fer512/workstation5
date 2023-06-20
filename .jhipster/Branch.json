@@ -1,0 +1,69 @@
+{
+  "applications": "*",
+  "dto": "mapstruct",
+  "entityTableName": "branch",
+  "fields": [
+    {
+      "fieldName": "id",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "unique"]
+    },
+    {
+      "fieldName": "status",
+      "fieldType": "BranchStatus",
+      "fieldValidateRules": ["required"],
+      "fieldValues": "ACTIVE,DISABLED"
+    },
+    {
+      "fieldName": "language",
+      "fieldType": "Language",
+      "fieldValidateRules": ["required"],
+      "fieldValues": "FRENCH,ENGLISH,SPANISH"
+    }
+  ],
+  "jpaMetamodelFiltering": true,
+  "name": "Branch",
+  "pagination": "pagination",
+  "relationships": [
+    {
+      "otherEntityName": "company",
+      "otherEntityRelationshipName": "branches",
+      "relationshipName": "company",
+      "relationshipSide": "left",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "waitingRoom",
+      "otherEntityRelationshipName": "branch",
+      "relationshipName": "waitingRoom",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-many"
+    },
+    {
+      "otherEntityName": "queue",
+      "otherEntityRelationshipName": "branch",
+      "relationshipName": "queue",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-many"
+    },
+    {
+      "otherEntityName": "worker",
+      "otherEntityRelationshipName": "branch",
+      "relationshipName": "worker",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-many"
+    },
+    {
+      "otherEntityName": "workerProfile",
+      "otherEntityRelationshipName": "branches",
+      "relationshipName": "workerProfiles",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-many"
+    }
+  ],
+  "service": "serviceImpl"
+}

@@ -1,0 +1,27 @@
+{
+  "applications": "*",
+  "dto": "mapstruct",
+  "entityTableName": "order_queue",
+  "fields": [
+    {
+      "fieldName": "id",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "order",
+      "fieldType": "Long",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "name": "OrderQueue",
+  "pagination": "pagination",
+  "relationships": [
+    {
+      "otherEntityName": "queue",
+      "relationshipName": "queue",
+      "relationshipSide": "left",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "serviceImpl"
+}
