@@ -1,0 +1,9 @@
+{
+  "debWorkstationApp": {
+    "CompanyStatus": {
+      "null": "",
+      "ACTIVE": "ACTIVE",
+      "DISABLED": "DISABLED"
+    }
+  }
+}

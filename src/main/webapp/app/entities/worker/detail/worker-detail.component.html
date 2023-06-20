@@ -1,0 +1,55 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="worker">
+      <h2 data-cy="workerDetailsHeading"><span jhiTranslate="debWorkstationApp.worker.detail.title">Worker</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="debWorkstationApp.worker.id">Id</span></dt>
+        <dd>
+          <span>{{ worker.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="debWorkstationApp.worker.name">Name</span></dt>
+        <dd>
+          <span>{{ worker.name }}</span>
+        </dd>
+        <dt><span jhiTranslate="debWorkstationApp.worker.status">Status</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'debWorkstationApp.WorkerStatus.' + worker.status }}">{{ worker.status }}</span>
+        </dd>
+        <dt><span jhiTranslate="debWorkstationApp.worker.company">Company</span></dt>
+        <dd>
+          <div *ngIf="worker.company">
+            <a [routerLink]="['/company', worker.company.id, 'view']">{{ worker.company.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="debWorkstationApp.worker.branch">Branch</span></dt>
+        <dd>
+          <span *ngFor="let branch of worker.branches; let last = last">
+            <a [routerLink]="['/branch', branch.id, 'view']">{{ branch.id }}</a
+            >{{ last ? '' : ', ' }}
+          </span>
+        </dd>
+        <dt><span jhiTranslate="debWorkstationApp.worker.waitingRoom">Waiting Room</span></dt>
+        <dd>
+          <div *ngIf="worker.waitingRoom">
+            <a [routerLink]="['/waiting-room', worker.waitingRoom.id, 'view']">{{ worker.waitingRoom.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/worker', worker.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

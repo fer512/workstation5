@@ -1,0 +1,55 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="queue">
+      <h2 data-cy="queueDetailsHeading"><span jhiTranslate="debWorkstationApp.queue.detail.title">Queue</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="debWorkstationApp.queue.id">Id</span></dt>
+        <dd>
+          <span>{{ queue.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="debWorkstationApp.queue.name">Name</span></dt>
+        <dd>
+          <span>{{ queue.name }}</span>
+        </dd>
+        <dt><span jhiTranslate="debWorkstationApp.queue.status">Status</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'debWorkstationApp.QueueStatus.' + queue.status }}">{{ queue.status }}</span>
+        </dd>
+        <dt><span jhiTranslate="debWorkstationApp.queue.attencionChannel">Attencion Channel</span></dt>
+        <dd>
+          <div *ngIf="queue.attencionChannel">
+            <a [routerLink]="['/attencion-channel', queue.attencionChannel.id, 'view']">{{ queue.attencionChannel.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="debWorkstationApp.queue.company">Company</span></dt>
+        <dd>
+          <div *ngIf="queue.company">
+            <a [routerLink]="['/company', queue.company.id, 'view']">{{ queue.company.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="debWorkstationApp.queue.branch">Branch</span></dt>
+        <dd>
+          <span *ngFor="let branch of queue.branches; let last = last">
+            <a [routerLink]="['/branch', branch.id, 'view']">{{ branch.id }}</a
+            >{{ last ? '' : ', ' }}
+          </span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/queue', queue.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

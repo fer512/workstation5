@@ -1,5 +1,6 @@
 {
   "applications": "*",
+  "changelogDate": "20230620195907",
   "dto": "mapstruct",
   "entityTableName": "waiting_room",
   "fields": [
@@ -51,5 +52,6 @@
       "relationshipType": "many-to-many"
     }
   ],
+  "searchEngine": "no",
   "service": "serviceImpl"
 }

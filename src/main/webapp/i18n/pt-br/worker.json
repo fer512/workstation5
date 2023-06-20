@@ -1,0 +1,28 @@
+{
+  "debWorkstationApp": {
+    "worker": {
+      "home": {
+        "title": "Workers",
+        "refreshListLabel": "Atualizar lista",
+        "createLabel": "Criar novo Worker",
+        "createOrEditLabel": "Criar ou editar Worker",
+        "notFound": "Nenhum Worker encontrado"
+      },
+      "created": "Um novo Worker foi criado com o identificador {{ param }}",
+      "updated": "Um Worker foi atualizado com o identificador {{ param }}",
+      "deleted": "Um Worker foi excluído com o identificador {{ param }}",
+      "delete": {
+        "question": "Tem certeza de que deseja excluir Worker {{ id }}?"
+      },
+      "detail": {
+        "title": "Worker"
+      },
+      "id": "Id",
+      "name": "Name",
+      "status": "Status",
+      "company": "Company",
+      "branch": "Branch",
+      "waitingRoom": "Waiting Room"
+    }
+  }
+}

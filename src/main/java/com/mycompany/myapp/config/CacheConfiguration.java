@@ -81,6 +81,31 @@ public class CacheConfiguration {
             createCache(cm, com.mycompany.myapp.domain.User.class.getName(), jcacheConfiguration);
             createCache(cm, com.mycompany.myapp.domain.Authority.class.getName(), jcacheConfiguration);
             createCache(cm, com.mycompany.myapp.domain.User.class.getName() + ".authorities", jcacheConfiguration);
+            createCache(cm, com.mycompany.myapp.domain.Worker.class.getName(), jcacheConfiguration);
+            createCache(cm, com.mycompany.myapp.domain.Worker.class.getName() + ".branches", jcacheConfiguration);
+            createCache(cm, com.mycompany.myapp.domain.AttencionChannel.class.getName(), jcacheConfiguration);
+            createCache(cm, com.mycompany.myapp.domain.WaitingRoomAttencionChannel.class.getName(), jcacheConfiguration);
+            createCache(cm, com.mycompany.myapp.domain.WorkerProfile.class.getName(), jcacheConfiguration);
+            createCache(cm, com.mycompany.myapp.domain.WorkerProfile.class.getName() + ".callableQueues", jcacheConfiguration);
+            createCache(cm, com.mycompany.myapp.domain.WorkerProfile.class.getName() + ".branches", jcacheConfiguration);
+            createCache(cm, com.mycompany.myapp.domain.WorkerProfileAttencionChannel.class.getName(), jcacheConfiguration);
+            createCache(cm, com.mycompany.myapp.domain.WaitingRoom.class.getName(), jcacheConfiguration);
+            createCache(cm, com.mycompany.myapp.domain.WaitingRoom.class.getName() + ".workers", jcacheConfiguration);
+            createCache(cm, com.mycompany.myapp.domain.WaitingRoom.class.getName() + ".branches", jcacheConfiguration);
+            createCache(cm, com.mycompany.myapp.domain.Branch.class.getName(), jcacheConfiguration);
+            createCache(cm, com.mycompany.myapp.domain.Branch.class.getName() + ".waitingRooms", jcacheConfiguration);
+            createCache(cm, com.mycompany.myapp.domain.Branch.class.getName() + ".queues", jcacheConfiguration);
+            createCache(cm, com.mycompany.myapp.domain.Branch.class.getName() + ".workers", jcacheConfiguration);
+            createCache(cm, com.mycompany.myapp.domain.Branch.class.getName() + ".workerProfiles", jcacheConfiguration);
+            createCache(cm, com.mycompany.myapp.domain.Queue.class.getName(), jcacheConfiguration);
+            createCache(cm, com.mycompany.myapp.domain.Queue.class.getName() + ".branches", jcacheConfiguration);
+            createCache(cm, com.mycompany.myapp.domain.Company.class.getName(), jcacheConfiguration);
+            createCache(cm, com.mycompany.myapp.domain.Company.class.getName() + ".waitingRooms", jcacheConfiguration);
+            createCache(cm, com.mycompany.myapp.domain.Company.class.getName() + ".branches", jcacheConfiguration);
+            createCache(cm, com.mycompany.myapp.domain.Company.class.getName() + ".queues", jcacheConfiguration);
+            createCache(cm, com.mycompany.myapp.domain.Company.class.getName() + ".workers", jcacheConfiguration);
+            createCache(cm, com.mycompany.myapp.domain.Company.class.getName() + ".workerProfiles", jcacheConfiguration);
+            createCache(cm, com.mycompany.myapp.domain.OrderQueue.class.getName(), jcacheConfiguration);
             // jhipster-needle-redis-add-entry
         };
     }

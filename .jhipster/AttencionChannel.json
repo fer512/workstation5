@@ -1,5 +1,6 @@
 {
   "applications": "*",
+  "changelogDate": "20230620195903",
   "dto": "mapstruct",
   "entityTableName": "attencion_channel",
   "fields": [
@@ -22,5 +23,6 @@
   "name": "AttencionChannel",
   "pagination": "pagination",
   "relationships": [],
+  "searchEngine": "no",
   "service": "serviceImpl"
 }

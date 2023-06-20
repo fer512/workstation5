@@ -1,0 +1,26 @@
+{
+  "debWorkstationApp": {
+    "orderQueue": {
+      "home": {
+        "title": "Order Queues",
+        "refreshListLabel": "Atualizar lista",
+        "createLabel": "Criar novo Order Queue",
+        "createOrEditLabel": "Criar ou editar Order Queue",
+        "notFound": "Nenhum Order Queue encontrado"
+      },
+      "created": "Um novo Order Queue foi criado com o identificador {{ param }}",
+      "updated": "Um Order Queue foi atualizado com o identificador {{ param }}",
+      "deleted": "Um Order Queue foi excluído com o identificador {{ param }}",
+      "delete": {
+        "question": "Tem certeza de que deseja excluir Order Queue {{ id }}?"
+      },
+      "detail": {
+        "title": "Order Queue"
+      },
+      "id": "Id",
+      "order": "Order",
+      "queue": "Queue",
+      "workerProfile": "Worker Profile"
+    }
+  }
+}

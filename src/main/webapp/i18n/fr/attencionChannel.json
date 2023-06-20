@@ -1,0 +1,26 @@
+{
+  "debWorkstationApp": {
+    "attencionChannel": {
+      "home": {
+        "title": "AttencionChannels",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Attencion Channel",
+        "createOrEditLabel": "Créer ou éditer un Attencion Channel",
+        "notFound": "Aucun Attencion Channel trouvé"
+      },
+      "created": "Un nouveau Attencion Channel a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Attencion Channel avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Attencion Channel avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Attencion Channel {{ id }} ?"
+      },
+      "detail": {
+        "title": "Attencion Channel"
+      },
+      "id": "Id",
+      "name": "Name",
+      "type": "Type",
+      "queue": "Queue"
+    }
+  }
+}

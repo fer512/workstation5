@@ -1,5 +1,6 @@
 {
   "applications": "*",
+  "changelogDate": "20230620195911",
   "dto": "mapstruct",
   "entityTableName": "order_queue",
   "fields": [
@@ -23,5 +24,6 @@
       "relationshipType": "many-to-one"
     }
   ],
+  "searchEngine": "no",
   "service": "serviceImpl"
 }

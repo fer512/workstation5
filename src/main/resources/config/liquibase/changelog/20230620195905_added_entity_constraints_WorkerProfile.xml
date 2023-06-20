@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+    <!--
+        Added the constraints for entity WorkerProfile.
+    -->
+    <changeSet id="20230620195905-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="attencion_channel_id"
+                                 baseTableName="worker_profile"
+                                 constraintName="fk_worker_profile__attencion_channel_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="worker_profile_attencion_channel"
+                                 />
+
+        <addForeignKeyConstraint baseColumnNames="company_id"
+                                 baseTableName="worker_profile"
+                                 constraintName="fk_worker_profile__company_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="company"
+                                 />
+
+        <addForeignKeyConstraint baseColumnNames="worker_profile_id"
+                                 baseTableName="rel_worker_profile__branches"
+                                 constraintName="fk_rel_worker_profile__branches__worker_profile_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="worker_profile"
+                                 />
+
+        <addForeignKeyConstraint baseColumnNames="branches_id"
+                                 baseTableName="rel_worker_profile__branches"
+                                 constraintName="fk_rel_worker_profile__branches__branches_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="branch"
+                                 />
+    </changeSet>
+</databaseChangeLog>

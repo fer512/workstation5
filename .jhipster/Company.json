@@ -1,5 +1,6 @@
 {
   "applications": "*",
+  "changelogDate": "20230620195910",
   "dto": "mapstruct",
   "entityTableName": "company",
   "fields": [
@@ -65,5 +66,6 @@
       "relationshipType": "one-to-many"
     }
   ],
+  "searchEngine": "no",
   "service": "serviceImpl"
 }

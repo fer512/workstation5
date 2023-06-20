@@ -1,0 +1,197 @@
+<div>
+  <h2 id="page-heading" data-cy="CompanyHeading">
+    <span jhiTranslate="debWorkstationApp.company.home.title">Companies</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="debWorkstationApp.company.home.refreshListLabel">Refresh list</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-company"
+        [routerLink]="['/company/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="debWorkstationApp.company.home.createLabel"> Create a new Company </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <jhi-filter [filters]="filters"></jhi-filter>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="companies?.length === 0">
+    <span jhiTranslate="debWorkstationApp.company.home.notFound">No Companies found</span>
+  </div>
+
+  <div class="table-responsive table-entities" id="entities" *ngIf="companies && companies.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+          <th scope="col" jhiSortBy="id">
+            <div class="d-flex">
+              <span jhiTranslate="debWorkstationApp.company.id">Id</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="name">
+            <div class="d-flex">
+              <span jhiTranslate="debWorkstationApp.company.name">Name</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="status">
+            <div class="d-flex">
+              <span jhiTranslate="debWorkstationApp.company.status">Status</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="language">
+            <div class="d-flex">
+              <span jhiTranslate="debWorkstationApp.company.language">Language</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let company of companies; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/company', company.id, 'view']">{{ company.id }}</a>
+          </td>
+          <td>{{ company.name }}</td>
+          <td jhiTranslate="{{ 'debWorkstationApp.CompanyStatus.' + company.status }}">{{ company.status }}</td>
+          <td jhiTranslate="{{ 'debWorkstationApp.Language.' + company.language }}">{{ company.language }}</td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/waiting-room']"
+                [queryParams]="{ 'filter[companyId.in]': company.id }"
+                class="btn btn-info btn-sm"
+                data-cy="filterOtherEntityButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span
+                  class="d-none d-md-inline"
+                  jhiTranslate="entity.action.show"
+                  [translateValues]="{ otherEntity: ('debWorkstationApp.company.waitingRoom' | translate) }"
+                  >Show Waiting Room</span
+                >
+              </button>
+              <button
+                type="submit"
+                [routerLink]="['/branch']"
+                [queryParams]="{ 'filter[companyId.in]': company.id }"
+                class="btn btn-info btn-sm"
+                data-cy="filterOtherEntityButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span
+                  class="d-none d-md-inline"
+                  jhiTranslate="entity.action.show"
+                  [translateValues]="{ otherEntity: ('debWorkstationApp.company.branches' | translate) }"
+                  >Show Branch</span
+                >
+              </button>
+              <button
+                type="submit"
+                [routerLink]="['/queue']"
+                [queryParams]="{ 'filter[companyId.in]': company.id }"
+                class="btn btn-info btn-sm"
+                data-cy="filterOtherEntityButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span
+                  class="d-none d-md-inline"
+                  jhiTranslate="entity.action.show"
+                  [translateValues]="{ otherEntity: ('debWorkstationApp.company.queue' | translate) }"
+                  >Show Queue</span
+                >
+              </button>
+              <button
+                type="submit"
+                [routerLink]="['/worker']"
+                [queryParams]="{ 'filter[companyId.in]': company.id }"
+                class="btn btn-info btn-sm"
+                data-cy="filterOtherEntityButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span
+                  class="d-none d-md-inline"
+                  jhiTranslate="entity.action.show"
+                  [translateValues]="{ otherEntity: ('debWorkstationApp.company.worker' | translate) }"
+                  >Show Worker</span
+                >
+              </button>
+              <button
+                type="submit"
+                [routerLink]="['/worker-profile']"
+                [queryParams]="{ 'filter[companyId.in]': company.id }"
+                class="btn btn-info btn-sm"
+                data-cy="filterOtherEntityButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span
+                  class="d-none d-md-inline"
+                  jhiTranslate="entity.action.show"
+                  [translateValues]="{ otherEntity: ('debWorkstationApp.company.workerProfiles' | translate) }"
+                  >Show Worker Profile</span
+                >
+              </button>
+              <button
+                type="submit"
+                [routerLink]="['/company', company.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/company', company.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(company)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div *ngIf="companies && companies.length > 0">
+    <div class="d-flex justify-content-center">
+      <jhi-item-count [params]="{ page: page, totalItems: totalItems, itemsPerPage: itemsPerPage }"></jhi-item-count>
+    </div>
+
+    <div class="d-flex justify-content-center">
+      <ngb-pagination
+        [collectionSize]="totalItems"
+        [page]="page"
+        [pageSize]="itemsPerPage"
+        [maxSize]="5"
+        [rotate]="true"
+        [boundaryLinks]="true"
+        (pageChange)="navigateToPage($event)"
+      ></ngb-pagination>
+    </div>
+  </div>
+</div>

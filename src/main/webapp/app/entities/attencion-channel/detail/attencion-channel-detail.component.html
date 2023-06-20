@@ -1,0 +1,38 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="attencionChannel">
+      <h2 data-cy="attencionChannelDetailsHeading">
+        <span jhiTranslate="debWorkstationApp.attencionChannel.detail.title">Attencion Channel</span>
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="debWorkstationApp.attencionChannel.id">Id</span></dt>
+        <dd>
+          <span>{{ attencionChannel.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="debWorkstationApp.attencionChannel.name">Name</span></dt>
+        <dd>
+          <span>{{ attencionChannel.name }}</span>
+        </dd>
+        <dt><span jhiTranslate="debWorkstationApp.attencionChannel.type">Type</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'debWorkstationApp.AttencionChannelType.' + attencionChannel.type }}">{{ attencionChannel.type }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/attencion-channel', attencionChannel.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,5 +1,6 @@
 {
   "applications": "*",
+  "changelogDate": "20230620195908",
   "dto": "mapstruct",
   "entityTableName": "branch",
   "fields": [
@@ -65,5 +66,6 @@
       "relationshipType": "many-to-many"
     }
   ],
+  "searchEngine": "no",
   "service": "serviceImpl"
 }

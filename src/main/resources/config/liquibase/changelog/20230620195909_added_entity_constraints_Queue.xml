@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+    <!--
+        Added the constraints for entity Queue.
+    -->
+    <changeSet id="20230620195909-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="attencion_channel_id"
+                                 baseTableName="queue"
+                                 constraintName="fk_queue__attencion_channel_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="attencion_channel"
+                                 />
+
+        <addForeignKeyConstraint baseColumnNames="company_id"
+                                 baseTableName="queue"
+                                 constraintName="fk_queue__company_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="company"
+                                 />
+
+        <addForeignKeyConstraint baseColumnNames="queue_id"
+                                 baseTableName="rel_queue__branch"
+                                 constraintName="fk_rel_queue__branch__queue_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="queue"
+                                 />
+
+        <addForeignKeyConstraint baseColumnNames="branch_id"
+                                 baseTableName="rel_queue__branch"
+                                 constraintName="fk_rel_queue__branch__branch_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="branch"
+                                 />
+    </changeSet>
+</databaseChangeLog>

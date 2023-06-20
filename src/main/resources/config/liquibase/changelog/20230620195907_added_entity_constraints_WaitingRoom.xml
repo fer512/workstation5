@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+    <!--
+        Added the constraints for entity WaitingRoom.
+    -->
+    <changeSet id="20230620195907-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="attencion_channel_id"
+                                 baseTableName="waiting_room"
+                                 constraintName="fk_waiting_room__attencion_channel_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="waiting_room_attencion_channel"
+                                 />
+
+        <addForeignKeyConstraint baseColumnNames="company_id"
+                                 baseTableName="waiting_room"
+                                 constraintName="fk_waiting_room__company_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="company"
+                                 />
+
+        <addForeignKeyConstraint baseColumnNames="waiting_room_id"
+                                 baseTableName="rel_waiting_room__branch"
+                                 constraintName="fk_rel_waiting_room__branch__waiting_room_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="waiting_room"
+                                 />
+
+        <addForeignKeyConstraint baseColumnNames="branch_id"
+                                 baseTableName="rel_waiting_room__branch"
+                                 constraintName="fk_rel_waiting_room__branch__branch_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="branch"
+                                 />
+    </changeSet>
+</databaseChangeLog>

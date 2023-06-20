@@ -1,0 +1,128 @@
+<div>
+  <h2 id="page-heading" data-cy="OrderQueueHeading">
+    <span jhiTranslate="debWorkstationApp.orderQueue.home.title">Order Queues</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="debWorkstationApp.orderQueue.home.refreshListLabel">Refresh list</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-order-queue"
+        [routerLink]="['/order-queue/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="debWorkstationApp.orderQueue.home.createLabel"> Create a new Order Queue </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="orderQueues?.length === 0">
+    <span jhiTranslate="debWorkstationApp.orderQueue.home.notFound">No Order Queues found</span>
+  </div>
+
+  <div class="table-responsive table-entities" id="entities" *ngIf="orderQueues && orderQueues.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+          <th scope="col" jhiSortBy="id">
+            <div class="d-flex">
+              <span jhiTranslate="debWorkstationApp.orderQueue.id">Id</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="order">
+            <div class="d-flex">
+              <span jhiTranslate="debWorkstationApp.orderQueue.order">Order</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="queue.id">
+            <div class="d-flex">
+              <span jhiTranslate="debWorkstationApp.orderQueue.queue">Queue</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="workerProfile.id">
+            <div class="d-flex">
+              <span jhiTranslate="debWorkstationApp.orderQueue.workerProfile">Worker Profile</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let orderQueue of orderQueues; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/order-queue', orderQueue.id, 'view']">{{ orderQueue.id }}</a>
+          </td>
+          <td>{{ orderQueue.order }}</td>
+          <td>
+            <div *ngIf="orderQueue.queue">
+              <a [routerLink]="['/queue', orderQueue.queue.id, 'view']">{{ orderQueue.queue.id }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="orderQueue.workerProfile">
+              <a [routerLink]="['/worker-profile', orderQueue.workerProfile.id, 'view']">{{ orderQueue.workerProfile.id }}</a>
+            </div>
+          </td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/order-queue', orderQueue.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/order-queue', orderQueue.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(orderQueue)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div *ngIf="orderQueues && orderQueues.length > 0">
+    <div class="d-flex justify-content-center">
+      <jhi-item-count [params]="{ page: page, totalItems: totalItems, itemsPerPage: itemsPerPage }"></jhi-item-count>
+    </div>
+
+    <div class="d-flex justify-content-center">
+      <ngb-pagination
+        [collectionSize]="totalItems"
+        [page]="page"
+        [pageSize]="itemsPerPage"
+        [maxSize]="5"
+        [rotate]="true"
+        [boundaryLinks]="true"
+        (pageChange)="navigateToPage($event)"
+      ></ngb-pagination>
+    </div>
+  </div>
+</div>

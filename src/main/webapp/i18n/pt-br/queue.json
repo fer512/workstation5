@@ -1,0 +1,28 @@
+{
+  "debWorkstationApp": {
+    "queue": {
+      "home": {
+        "title": "Queues",
+        "refreshListLabel": "Atualizar lista",
+        "createLabel": "Criar novo Queue",
+        "createOrEditLabel": "Criar ou editar Queue",
+        "notFound": "Nenhum Queue encontrado"
+      },
+      "created": "Um novo Queue foi criado com o identificador {{ param }}",
+      "updated": "Um Queue foi atualizado com o identificador {{ param }}",
+      "deleted": "Um Queue foi excluído com o identificador {{ param }}",
+      "delete": {
+        "question": "Tem certeza de que deseja excluir Queue {{ id }}?"
+      },
+      "detail": {
+        "title": "Queue"
+      },
+      "id": "Id",
+      "name": "Name",
+      "status": "Status",
+      "attencionChannel": "Attencion Channel",
+      "company": "Company",
+      "branch": "Branch"
+    }
+  }
+}
