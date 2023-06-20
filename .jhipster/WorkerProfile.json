@@ -1,0 +1,54 @@
+{
+  "applications": "*",
+  "dto": "mapstruct",
+  "entityTableName": "worker_profile",
+  "fields": [
+    {
+      "fieldName": "id",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "unique"]
+    },
+    {
+      "fieldName": "status",
+      "fieldType": "WorkerProfileStatus",
+      "fieldValidateRules": ["required"],
+      "fieldValues": "ACTIVE,DISABLED"
+    }
+  ],
+  "jpaMetamodelFiltering": true,
+  "name": "WorkerProfile",
+  "pagination": "pagination",
+  "relationships": [
+    {
+      "otherEntityName": "workerProfileAttencionChannel",
+      "relationshipName": "attencionChannel",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "orderQueue",
+      "relationshipName": "callableQueue",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "company",
+      "otherEntityRelationshipName": "workerProfiles",
+      "relationshipName": "company",
+      "relationshipSide": "left",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "branch",
+      "otherEntityRelationshipName": "workerProfiles",
+      "relationshipName": "branches",
+      "relationshipSide": "left",
+      "relationshipType": "many-to-many"
+    }
+  ],
+  "service": "serviceImpl"
+}

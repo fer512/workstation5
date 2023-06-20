@@ -1,0 +1,26 @@
+{
+  "applications": "*",
+  "dto": "mapstruct",
+  "entityTableName": "waiting_room_attencion_channel",
+  "fields": [
+    {
+      "fieldName": "id",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "unique"]
+    },
+    {
+      "fieldName": "type",
+      "fieldType": "WaitingRoomAttencionChannelType",
+      "fieldValidateRules": ["required"],
+      "fieldValues": "VIRTUAL,PRESENTIAL,MIXED"
+    }
+  ],
+  "name": "WaitingRoomAttencionChannel",
+  "pagination": "pagination",
+  "relationships": [],
+  "service": "serviceImpl"
+}

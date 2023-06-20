@@ -1,0 +1,55 @@
+{
+  "applications": "*",
+  "dto": "mapstruct",
+  "entityTableName": "waiting_room",
+  "fields": [
+    {
+      "fieldName": "id",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "unique"]
+    },
+    {
+      "fieldName": "status",
+      "fieldType": "WaitingRoomStatus",
+      "fieldValidateRules": ["required"],
+      "fieldValues": "ACTIVE,DISABLED"
+    }
+  ],
+  "jpaMetamodelFiltering": true,
+  "name": "WaitingRoom",
+  "pagination": "pagination",
+  "relationships": [
+    {
+      "otherEntityName": "waitingRoomAttencionChannel",
+      "relationshipName": "attencionChannel",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "worker",
+      "otherEntityRelationshipName": "waitingRoom",
+      "relationshipName": "worker",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "company",
+      "otherEntityRelationshipName": "waitingRoom",
+      "relationshipName": "company",
+      "relationshipSide": "left",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "branch",
+      "otherEntityRelationshipName": "waitingRoom",
+      "relationshipName": "branch",
+      "relationshipSide": "left",
+      "relationshipType": "many-to-many"
+    }
+  ],
+  "service": "serviceImpl"
+}

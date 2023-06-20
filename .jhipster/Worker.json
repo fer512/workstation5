@@ -1,0 +1,49 @@
+{
+  "applications": "*",
+  "dto": "mapstruct",
+  "entityTableName": "worker",
+  "fields": [
+    {
+      "fieldName": "id",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "unique"]
+    },
+    {
+      "fieldName": "status",
+      "fieldType": "WorkerStatus",
+      "fieldValidateRules": ["required"],
+      "fieldValues": "ACTIVE,DISABLED"
+    }
+  ],
+  "jpaMetamodelFiltering": true,
+  "name": "Worker",
+  "pagination": "pagination",
+  "relationships": [
+    {
+      "otherEntityName": "company",
+      "otherEntityRelationshipName": "worker",
+      "relationshipName": "company",
+      "relationshipSide": "left",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "branch",
+      "otherEntityRelationshipName": "worker",
+      "relationshipName": "branch",
+      "relationshipSide": "left",
+      "relationshipType": "many-to-many"
+    },
+    {
+      "otherEntityName": "waitingRoom",
+      "otherEntityRelationshipName": "worker",
+      "relationshipName": "waitingRoom",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "serviceImpl"
+}
